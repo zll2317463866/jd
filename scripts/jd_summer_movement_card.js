@@ -1,9 +1,9 @@
-/**
- *  燃动夏季领会员奖励
- *  每日跑一次，尝试领取会员奖励
- *  如果你已经是会员，则会领取奖励成功，若不是会员，则需要手动卡开
- *  cron 10 8 * * *
- * */
+/*
+
+cron 10 8 * * * jd_summer_movement_card.js
+
+
+ */
 const $ = new Env('燃动夏季领会员奖励');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -79,9 +79,6 @@ if ($.isNode()) {
 }
 
 !(async () => {
-  console.log(`活动火爆种`);
-  return;
-
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
